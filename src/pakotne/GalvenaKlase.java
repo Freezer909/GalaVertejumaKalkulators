@@ -2,11 +2,60 @@ package pakotne;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
+	
 
 public class GalvenaKlase {
+	
+	static String virknesParbaude(String zinojums, String noklusejums) {
+		 String virkne;
+		 do {
+			 virkne = JOptionPane.showInputDialog(zinojums, noklusejums);
+			 if(virkne == null)
+				 return null;
+		 }while(!Pattern.matches("^[\\p{L} .]+$", virkne));
+		 
+		return virkne;
+	}
+	
+	static int skaitlaParbaude(String zinojums, int min, int max) {
+		  String ievade;
+		  int skaitlis;
+		  
+		  while(true) {
+			  ievade = JOptionPane.showInputDialog(null, zinojums, 
+					  "datu ievade", JOptionPane.INFORMATION_MESSAGE);
+			  if (ievade == null)
+				  return -1;
+			  
+			  try {
+				  skaitlis = Integer.parseInt(ievade);
+				  if(skaitlis < min || skaitlis > max) {
+					  JOptionPane.showMessageDialog(null, "Norādīts nederīgs intervāls",
+							  "nekorekti dati", JOptionPane.WARNING_MESSAGE);
+					  continue;
+				  }
+				  return skaitlis;
+			  }catch(NumberFormatException e) {
+				  JOptionPane.showMessageDialog(null, 
+						  "netika ievadīts vesels skaitlis",
+						  "Nekorekti dati", JOptionPane.ERROR_MESSAGE);
+			  }
+			  
+		  }
+		}
+	
+	public static Scanner scan = new Scanner(System.in);
+	public static int studSk, kritSk;
+	public static DecimalFormat df = new DecimalFormat("0.#");
+	
+	
+	
 	public static void main(String[] args) {
 		int studSk, kritSk;
-		Scanner scan = new Scanner(System.in);
 		DecimalFormat df = new DecimalFormat("0.#");
 		
 		// Audzēkņu skaita ievade
@@ -61,9 +110,9 @@ public class GalvenaKlase {
 					scan.next();
 				}
 				kriterijaSvars[i] = scan.nextInt();
-				/* Minimālā KATRA ATLIKUŠĀ kritērija svars ir 5
-				 * kopējai svaru vērtībai ir jābūt 100 (ne mazāk, ne vairāk)
-				*/
+				//Minimālā KATRA ATLIKUŠĀ kritērija svars ir 5
+				 //kopējai svaru vērtībai ir jābūt 100 (ne mazāk, ne vairāk)
+				
 				atlSvars = (maxSvars - kriterijaSvars[i]) / (double)(kriteriji.length - sk);
 			} while(kriterijaSvars[i]>maxSvars || kriterijaSvars[i]<5 || 
 				  (i != kriteriji.length-1 && kriterijaSvars[i] == maxSvars) ||
