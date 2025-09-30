@@ -45,6 +45,9 @@ public class main {
 		}
 	
 	public static void main(String[] args) {
+		int studSk;
+		int kritSk;
+		
 		int izvele;
 		do {
 			izvele = skaitlaParbaude(
@@ -78,8 +81,8 @@ public class main {
 				metodes.kriterijuIevade();
 				break;
 				
-			case 3:
-
+			case 9:
+				metodes.apreikinatGalaVert();
 				break;
 				
 			}

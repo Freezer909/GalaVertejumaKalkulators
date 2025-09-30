@@ -1,5 +1,6 @@
 package pakotne;
 
+import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
@@ -44,23 +45,27 @@ public class metodes {
 		  }
 		}
 	
+	public static DecimalFormat df = new DecimalFormat("0.#");
+	
 	public static int studSk, kritSk;
 	
-	static void audzeknuIevade() {
+	public static int[] kriterijaSvars = new int[kritSk];
+	public static int[][] kriterijaVertejums = new int[studSk][kritSk];
+	public static double[] semestraVertejums = new double[studSk];
+	
+	static String[] audzeknuIevade() {
 		studSk = main.skaitlaParbaude("Ievadi audzēkņu skaitu", 1, 10);
 		String[] studenti = new String[studSk];
 		for(int i=0; i<studenti.length; i++) {
 			studenti[i] = virknesParbaude("Ievadi skolena "+(i+1)+" vārdu", "Vektors");
 	}
+		return studenti;
 	
 	}
 	
 	static void kriterijuIevade() {
 	kritSk = skaitlaParbaude("Ievadi cik daudz būs kritēriju!", 1, 10);
 	String[] kriteriji = new String[kritSk];
-	int[] kriterijaSvars = new int[kritSk];
-	int[][] kriterijaVertejums = new int[studSk][kritSk];
-	double[] semestraVertejums = new double[studSk];
 		int maxSvars = 100, sk = 1;
 		double atlSvars;
 		for(int i=0; i<kriteriji.length; i++) {
@@ -79,4 +84,28 @@ public class metodes {
 			sk++;
 		}
 	}
+	static void apreikinatGalaVert() {
+		double rezultats;
+		for(int i=0; i<studenti.length; i++) {
+			rezultats=0;
+			for(int j=0; j<kriteriji.length; j++) {
+				rezultats += ((double) kriterijaSvars[j]/100)*kriterijaVertejums[i][j];
+			}
+			semestraVertejums[i] = rezultats;
+		}
+		
+		// Gala vērtējumu izvadīšana
+		for(int i=0; i<studenti.length; i++) {	
+			for(int j=0; j<kriteriji.length; j++) {
+				
+				JOptionPane.showMessageDialog(null ,"Studenta "+studenti[i]+" vērtējums par kritēriju "+kriteriji[j]+" ir "+kriterijaVertejums[i][j]+", kura svars ir "+kriterijaSvars[j], "Info", JOptionPane.INFORMATION_MESSAGE);
+			}
+			System.out.println("Semestra vērtējums ir "+df.format(semestraVertejums[i])+" balles"
+					+ "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+			JOptionPane.showMessageDialog(null ,"Semestra vērtējums ir "+df.format(semestraVertejums[i])+" balles"
+					+ "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n", "Info", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+	
+	
 }
