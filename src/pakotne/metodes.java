@@ -54,6 +54,7 @@ public class metodes {
 	static int[] kriterijaSvars;
 	static int[][] kriterijaVertejums;
 	static double[] semestraVertejums;
+	static String teksts = "";
 	
 	static void audzeknuIevade() {
 		int StudentuSk;
@@ -113,8 +114,9 @@ public class metodes {
 		
 	}
 	
-	static void apreikinatGalaVert() {
+	static String apreikinatGalaVert() {
 		semestraVertejums = new double[studSk];
+		
 		double rezultats;
 		for(int i=0; i<studenti.length; i++) {
 			rezultats=0;
@@ -129,12 +131,17 @@ public class metodes {
 			for(int j=0; j<kriteriji.length; j++) {
 				
 				JOptionPane.showMessageDialog(null ,"Studenta "+studenti[i]+" vērtējums par kritēriju "+kriteriji[j]+" ir "+kriterijaVertejums[i][j]+", kura svars ir "+kriterijaSvars[j], "Info", JOptionPane.INFORMATION_MESSAGE);
+				teksts += "Studenta "+studenti[i]+" vērtējums par kritēriju "+kriteriji[j]+" ir "+kriterijaVertejums[i][j]+", kura svars ir "+kriterijaSvars[j];
 			}
 			System.out.println("Semestra vērtējums ir "+df.format(semestraVertejums[i])+" balles"
 					+ "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 			JOptionPane.showMessageDialog(null ,"Semestra vērtējums ir "+df.format(semestraVertejums[i])+" balles"
 					+ "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n", "Info", JOptionPane.INFORMATION_MESSAGE);
+			teksts += "Semestra vērtējums ir "+df.format(semestraVertejums[i])+" balles"
+					+ "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 		}
+		 
+		return teksts;
 	}
 	
 	

@@ -1,0 +1,4 @@
+Studenta Vektors vērtējums par kritēriju PD ir 5, kura svars ir 40Studenta Vektors vērtējums par kritēriju MD ir 8, kura svars ir 60Semestra vērtējums ir 6.8 balles
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Studenta Eriks vērtējums par kritēriju PD ir 4, kura svars ir 40Studenta Eriks vērtējums par kritēriju MD ir 10, kura svars ir 60Semestra vērtējums ir 7.6 balles
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

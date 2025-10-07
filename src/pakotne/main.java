@@ -87,24 +87,24 @@ public class main {
 				metodes.ievaditVertejumus();
 				break;
 			case 5:
-				
+				metodes.kriterijuIevade();
 				break;
 			case 6:
-				
+				metodes.kriterijuSvaruIevade();
 				break;
 			case 7:
-				
+				metodes.ievaditVertejumus();
 				break;
 			case 8:
 				metodes.apreikinatGalaVert();
 				break;
 				
 			case 9:
-				
+				Faili.Ieraksts(metodes.teksts);
 				break;
 				
 			case 10:
-				
+				Faili.Nolasit();
 				break;
 				
 			}
