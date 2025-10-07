@@ -1,5 +1,10 @@
 package pakotne;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 public class Faili {
 	static void Nolasit() {
 		String teksts, str = "";
@@ -27,7 +32,6 @@ public class Faili {
 			FileWriter fw = new FileWriter("fakstorial.txt", true);
 			PrintWriter pw = new PrintWriter(fw);
 			
-				pw.print();
 
 			pw.close();
 			JOptionPane.showMessageDialog(null, "GalaVērtējums saglabāts", "Aura",
