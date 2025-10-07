@@ -8,11 +8,11 @@ Java programmēšanas valodā izstrādātā programmatūras projekta sākotnēj�
 - [x] Programmā ieviest galveno izvēlni
 	- [x] Ievadīt audzēkņus
 	- [x] Ievadīt kritērijus
-	- [ ] Ievadīt kritēriju svarus
-	- [ ] Ievadīt vērtējumus
-	- [ ] Labot kritēriju
-	- [ ] Labot kritērija svaru
-	- [ ] Labot iegūto vērtējumu
-	- [ ] Aprēķināt gala vērtējumu
-	- [ ] Saglabāt rezultātus failā
-	- [ ] Nolasīt rezultātus no faila
+	- [x] Ievadīt kritēriju svarus
+	- [x] Ievadīt vērtējumus
+	- [x] Labot kritēriju
+	- [x] Labot kritērija svaru
+	- [x] Labot iegūto vērtējumu
+	- [x] Aprēķināt gala vērtējumu
+	- [x] Saglabāt rezultātus failā
+	- [x] Nolasīt rezultātus no faila
