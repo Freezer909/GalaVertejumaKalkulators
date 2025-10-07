@@ -68,11 +68,11 @@ public class metodes {
 	
 	static void kriterijuIevade() {
 		String KriterijSk;
-		KriterijSk = virknesParbaude("Ievadi studentu skaitu!:", "2");
+		KriterijSk = virknesParbaude("Kāds būs kritēriju skaits?:", "2");
 		kritSk = Integer.parseInt(KriterijSk);
 		kriteriji = new String[kritSk];
 		for(int i=0; i<studenti.length; i++) {
-			studenti[i] = virknesParbaude("Ievadi skolena "+(i+1)+" vārdu", "Vektors");
+			kriteriji[i] = virknesParbaude("Ievadi "+(i+1)+" kriteriju", "PD");
 	}
 	
 	}
