@@ -47,43 +47,36 @@ public class metodes {
 	
 	public static DecimalFormat df = new DecimalFormat("0.#");
 	
-	public static int studSk, kritSk;
+	public static int studSk = 0, kritSk = 0;
 	
-	public static int[] kriterijaSvars = new int[kritSk];
-	public static int[][] kriterijaVertejums = new int[studSk][kritSk];
-	public static double[] semestraVertejums = new double[studSk];
+	static String[] studenti;
+	static String[] kriteriji;
+	static int[] kriterijaSvars;
+	static int[][] kriterijaVertejums;
+	static double[] semestraVertejums;
 	
-	static String[] audzeknuIevade() {
-		studSk = main.skaitlaParbaude("Ievadi audzēkņu skaitu", 1, 10);
-		String[] studenti = new String[studSk];
+	static void audzeknuIevade() {
+		String StudentuSk;
+		StudentuSk = virknesParbaude("Ievadi studentu skaitu!:", "2");
+		studSk = Integer.parseInt(StudentuSk);
+		studenti = new String[studSk];
 		for(int i=0; i<studenti.length; i++) {
 			studenti[i] = virknesParbaude("Ievadi skolena "+(i+1)+" vārdu", "Vektors");
 	}
-		return studenti;
 	
 	}
 	
 	static void kriterijuIevade() {
-	kritSk = skaitlaParbaude("Ievadi cik daudz būs kritēriju!", 1, 10);
-	String[] kriteriji = new String[kritSk];
-		int maxSvars = 100, sk = 1;
-		double atlSvars;
-		for(int i=0; i<kriteriji.length; i++) {
-			virknesParbaude("Ievadi "+(i+1)+". kritēriju", "PD");
-			// Norāda katra kritērija svaru
-				kriterijaSvars[i] = skaitlaParbaude("Ievadi "+(i+1)+". kritērija svaru (max: "+maxSvars+")", 1, 100);
-				//Minimālā KATRA ATLIKUŠĀ kritērija svars ir 5
-				 //kopējai svaru vērtībai ir jābūt 100 (ne mazāk, ne vairāk)
-				
-				atlSvars = (maxSvars - kriterijaSvars[i]) / (double)(kriteriji.length - sk);
-			 while(kriterijaSvars[i]>maxSvars || kriterijaSvars[i]<5 || 
-				  (i != kriteriji.length-1 && kriterijaSvars[i] == maxSvars) ||
-				  (i == kriteriji.length-1 && (maxSvars - kriterijaSvars[i])  > 0) 
-				  || atlSvars < 5);
-			maxSvars -= kriterijaSvars[i];
-			sk++;
-		}
+		String KriterijSk;
+		KriterijSk = virknesParbaude("Ievadi studentu skaitu!:", "2");
+		kritSk = Integer.parseInt(KriterijSk);
+		kriteriji = new String[kritSk];
+		for(int i=0; i<studenti.length; i++) {
+			studenti[i] = virknesParbaude("Ievadi skolena "+(i+1)+" vārdu", "Vektors");
 	}
+	
+	}
+	
 	static void apreikinatGalaVert() {
 		double rezultats;
 		for(int i=0; i<studenti.length; i++) {
