@@ -81,6 +81,14 @@ public class main {
 				metodes.kriterijuIevade();
 				break;
 				
+			case 3:
+				metodes.kriterijuSvaruIevade();
+				break;
+				
+			case 4:
+				
+				break;
+				
 			case 9:
 				metodes.apreikinatGalaVert();
 				break;

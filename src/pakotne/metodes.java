@@ -56,9 +56,9 @@ public class metodes {
 	static double[] semestraVertejums;
 	
 	static void audzeknuIevade() {
-		String StudentuSk;
-		StudentuSk = virknesParbaude("Ievadi studentu skaitu!:", "2");
-		studSk = Integer.parseInt(StudentuSk);
+		int StudentuSk;
+		StudentuSk = skaitlaParbaude("Ievadi studentu skaitu!:",1 , 5);
+		studSk = StudentuSk;
 		studenti = new String[studSk];
 		for(int i=0; i<studenti.length; i++) {
 			studenti[i] = virknesParbaude("Ievadi skolena "+(i+1)+" vārdu", "Vektors");
@@ -67,14 +67,36 @@ public class metodes {
 	}
 	
 	static void kriterijuIevade() {
-		String KriterijSk;
-		KriterijSk = virknesParbaude("Kāds būs kritēriju skaits?:", "2");
-		kritSk = Integer.parseInt(KriterijSk);
+		int KriterijSk;
+		KriterijSk = skaitlaParbaude("Kāds būs kritēriju skaits?:", 1, 5);
+		kritSk = KriterijSk;
 		kriteriji = new String[kritSk];
 		for(int i=0; i<studenti.length; i++) {
 			kriteriji[i] = virknesParbaude("Ievadi "+(i+1)+" kriteriju", "PD");
+		}
 	}
 	
+	static void kriterijuSvaruIevade() {
+		int maxSvars = 100, sk = 1, svars;
+		double atlSvars;
+		kriterijaSvars = new int[kritSk];
+		for(int i=0; i<kriteriji.length; i++) {
+			// Norāda katra kritērija svaru
+			do {
+				svars = skaitlaParbaude("Ievadi "+(i+1)+". kritērija svaru (max: "+maxSvars+")", 1, 100);
+				kriterijaSvars[i] = svars;
+				//Minimālā KATRA ATLIKUŠĀ kritērija svars ir 5
+				 //kopējai svaru vērtībai ir jābūt 100 (ne mazāk, ne vairāk)
+				
+				atlSvars = (maxSvars - kriterijaSvars[i]) / (double)(kriteriji.length - sk);
+			} while(kriterijaSvars[i]>maxSvars || kriterijaSvars[i]<5 || 
+				  (i != kriteriji.length-1 && kriterijaSvars[i] == maxSvars) ||
+				  (i == kriteriji.length-1 && (maxSvars - kriterijaSvars[i])  > 0) 
+				  || atlSvars < 5);
+			maxSvars -= kriterijaSvars[i];
+			sk++;
+		}
+		
 	}
 	
 	static void apreikinatGalaVert() {
