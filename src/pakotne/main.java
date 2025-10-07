@@ -45,8 +45,6 @@ public class main {
 		}
 	
 	public static void main(String[] args) {
-		int studSk;
-		int kritSk;
 		
 		int izvele;
 		do {
@@ -62,7 +60,7 @@ public class main {
 					+ "7 - Labot iegūto vērtējumu \n"
 					+ "8 - Apreiķināt gala vērtējumu\n"
 					+ "9 - Saglabāt rezultātu failā\n"
-					+ "10 - nolsaīt rezultātus no faila", 0, 3);
+					+ "10 - nolsaīt rezultātus no faila", 0, 10);
 			if (izvele == -1)
 				izvele = 0;
 			
@@ -86,11 +84,27 @@ public class main {
 				break;
 				
 			case 4:
+				metodes.ievaditVertejumus();
+				break;
+			case 5:
 				
+				break;
+			case 6:
+				
+				break;
+			case 7:
+				
+				break;
+			case 8:
+				metodes.apreikinatGalaVert();
 				break;
 				
 			case 9:
-				metodes.apreikinatGalaVert();
+				
+				break;
+				
+			case 10:
+				
 				break;
 				
 			}

@@ -99,7 +99,22 @@ public class metodes {
 		
 	}
 	
+	public static void ievaditVertejumus() {
+		kriterijaVertejums = new int[studSk][kritSk];
+		int atzime;
+		for(int i=0; i<kriterijaVertejums.length; i++) {
+			for(int j=0; j<kriterijaVertejums[i].length; j++) {
+				do {
+					atzime = skaitlaParbaude("Ievadi "+studenti[i]+" vērtējumu par kritēriju "+kriteriji[j], 0, 10);
+					kriterijaVertejums[i][j] = atzime;
+				}while(kriterijaVertejums[i][j]<0 || kriterijaVertejums[i][j]>10);
+			}
+		}
+		
+	}
+	
 	static void apreikinatGalaVert() {
+		semestraVertejums = new double[studSk];
 		double rezultats;
 		for(int i=0; i<studenti.length; i++) {
 			rezultats=0;
